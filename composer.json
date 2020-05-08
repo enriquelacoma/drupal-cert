@@ -1,0 +1,5 @@
+{
+    "require": {
+        "drupal/recommended-project": "^8.8"
+    }
+}

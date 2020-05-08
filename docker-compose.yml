@@ -1,0 +1,60 @@
+version: '3'
+services:
+  web:
+    image: fpfis/httpd-php-dev:7.2
+    working_dir: ${PWD}
+    volumes:
+      - ${PWD}:${PWD}
+    environment:
+      - DOCUMENT_ROOT=${PWD}/build
+      #- XDEBUG_CONFIG=idekey=cloud9ide remote_connect_back=0 remote_host=${DOCKER_HOST_IP} remote_enable=1
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+
+  mysql:
+    image: percona/percona-server:5.6
+    command: --innodb-log-file_size=256M --max-allowed-packet=1G --innodb-buffer-pool-size=512M
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  solr:
+    image: fpfis/solr5
+
+  selenium:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      VNC_NO_PASSWORD: 1
+
+  novnc:
+    image: dougw/novnc
+    ports:
+      - 8081:8081
+    environment:
+      REMOTE_HOST: selenium
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: ${MYSQL_USER:-root}
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    ports:
+      - 8082:80
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+volumes:
+  mysql-data:
