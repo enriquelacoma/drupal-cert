@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dadfb36ab61c802a3fb20c298580a8d",
+    "content-hash": "f6bde4593f90977063011e2dbdeada82",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -650,11 +650,6 @@
         {
             "name": "drupal/core",
             "version": "8.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core.git",
-                "reference": "e22cfc3adf1dac7a92452287a7d8602f3c27b68f"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/drupal/core/zipball/e22cfc3adf1dac7a92452287a7d8602f3c27b68f",
@@ -870,21 +865,27 @@
                     "lib/Drupal/Core/Site/Settings.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "pre-autoload-dump": [
+                    "Drupal\\Core\\Composer\\Composer::preAutoloadDump"
+                ],
+                "post-autoload-dump": [
+                    "Drupal\\Core\\Composer\\Composer::ensureHtaccess"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-04-02T19:01:19+00:00"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal/core.git",
+                "reference": "e22cfc3adf1dac7a92452287a7d8602f3c27b68f"
+            }
         },
         {
             "name": "drupal/core-composer-scaffold",
             "version": "8.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "4825cb5234c28dff79ad298db582dfb23ff4ca59"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/4825cb5234c28dff79ad298db582dfb23ff4ca59",
@@ -913,7 +914,6 @@
                     "Drupal\\Composer\\Plugin\\Scaffold\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -922,16 +922,15 @@
             "keywords": [
                 "drupal"
             ],
-            "time": "2020-03-10T10:15:17+00:00"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal/core-composer-scaffold.git",
+                "reference": "4825cb5234c28dff79ad298db582dfb23ff4ca59"
+            }
         },
         {
             "name": "drupal/core-project-message",
             "version": "8.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core-project-message.git",
-                "reference": "10be18c6a401de8e243777de6a74cb45a7ecacad"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/drupal/core-project-message/zipball/10be18c6a401de8e243777de6a74cb45a7ecacad",
@@ -951,7 +950,6 @@
                     "Drupal\\Composer\\Plugin\\ProjectMessage\\": "."
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -960,16 +958,15 @@
             "keywords": [
                 "drupal"
             ],
-            "time": "2020-02-21T09:36:23+00:00"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal/core-project-message.git",
+                "reference": "10be18c6a401de8e243777de6a74cb45a7ecacad"
+            }
         },
         {
             "name": "drupal/core-recommended",
             "version": "8.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "7163954903e63ead331de073c83ad769926ad9a1"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/drupal/core-recommended/zipball/7163954903e63ead331de073c83ad769926ad9a1",
@@ -1035,98 +1032,15 @@
                 "webflo/drupal-core-strict": "*"
             },
             "type": "metapackage",
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
-            "time": "2020-04-02T19:01:19+00:00"
-        },
-        {
-            "name": "drupal/recommended-project",
-            "version": "8.8.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/drupal/recommended-project.git",
-                "reference": "4c1b6aa8d56ed7dadf46559cfade37d38a9ab3ed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal/recommended-project/zipball/4c1b6aa8d56ed7dadf46559cfade37d38a9ab3ed",
-                "reference": "4c1b6aa8d56ed7dadf46559cfade37d38a9ab3ed",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "^1.2",
-                "drupal/core-composer-scaffold": "^8.8",
-                "drupal/core-project-message": "^8.8",
-                "drupal/core-recommended": "^8.8"
-            },
-            "conflict": {
-                "drupal/drupal": "*"
-            },
-            "type": "project",
-            "extra": {
-                "drupal-scaffold": {
-                    "locations": {
-                        "web-root": "web/"
-                    }
-                },
-                "installer-paths": {
-                    "web/core": [
-                        "type:drupal-core"
-                    ],
-                    "web/libraries/{$name}": [
-                        "type:drupal-library"
-                    ],
-                    "web/modules/contrib/{$name}": [
-                        "type:drupal-module"
-                    ],
-                    "web/profiles/contrib/{$name}": [
-                        "type:drupal-profile"
-                    ],
-                    "web/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ],
-                    "drush/Commands/contrib/{$name}": [
-                        "type:drupal-drush"
-                    ],
-                    "web/modules/custom/{$name}": [
-                        "type:drupal-custom-module"
-                    ],
-                    "web/themes/custom/{$name}": [
-                        "type:drupal-custom-theme"
-                    ]
-                },
-                "drupal-core-project-message": {
-                    "include-keys": [
-                        "homepage",
-                        "support"
-                    ],
-                    "post-create-project-cmd-message": [
-                        "<bg=blue;fg=white>                                                         </>",
-                        "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                        "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
-                        "<bg=blue;fg=white>                                                         </>",
-                        "",
-                        "<bg=yellow;fg=black>Next steps</>:",
-                        "  * Install the site: https://www.drupal.org/docs/8/install",
-                        "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                        "  * Get support: https://www.drupal.org/support",
-                        "  * Get involved with the Drupal community:",
-                        "      https://www.drupal.org/getting-involved",
-                        "  * Remove the plugin that prints this message:",
-                        "      composer remove drupal/core-project-message"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Project template for Drupal 8 projects with a relocated document root",
-            "homepage": "https://www.drupal.org/project/drupal",
-            "time": "2019-11-04T11:12:32+00:00"
+                "url": "https://github.com/drupal/core-recommended.git",
+                "reference": "7163954903e63ead331de073c83ad769926ad9a1"
+            }
         },
         {
             "name": "easyrdf/easyrdf",
@@ -3677,10 +3591,11 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
