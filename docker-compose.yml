@@ -8,6 +8,7 @@ services:
     environment:
       - DOCUMENT_ROOT=${PWD}/web
       #- XDEBUG_CONFIG=idekey=cloud9ide remote_connect_back=0 remote_host=${DOCKER_HOST_IP} remote_enable=1
+      - XDEBUG_CONFIG=remote_host=host.docker.internal remote_enable=1
     depends_on:
       - mysql
     ports:
