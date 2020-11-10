@@ -1,5 +1,11 @@
 vendor
-web
+web/core
+web/modules/contrib
+web/modules/README.txt
+web/profiles
+web/sites
+web/themes
+web/*.*
 .idea
 .DS_Store
 *~
