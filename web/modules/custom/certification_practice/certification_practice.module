@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function certification_practice_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.certification_practice':
+      $output = '';
+      $output .= '<h2>' . t('Certification help') . '</h2>';
+      $output .= '<div></div><p>' . t('Help for certification practices.') . '</p></div>';
+      return $output;
+    default:
+  }
+}

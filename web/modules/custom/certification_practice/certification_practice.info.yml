@@ -1,0 +1,5 @@
+name: 'Certification Practice'
+type: module
+description: 'Certification practice'
+core_version_requirement: ^9
+package: 'Certification practice'
