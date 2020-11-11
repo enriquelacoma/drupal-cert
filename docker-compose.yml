@@ -32,6 +32,12 @@ services:
       - "5900:5900"
     expose:
       - '4444'
+  ovnc:
+    image: dougw/novnc
+    ports:
+      - 8081:8081
+    environment:
+      REMOTE_HOST: selenium
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:

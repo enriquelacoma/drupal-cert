@@ -1,4 +1,17 @@
-To install phpcs take this steps:
+### Installing drupal:
+* Install docker
+    ```
+    docker-compose up -d
+    ```
+* Install drupal
+    ```
+   docker-compose exec web drush site-install -y standard \
+    --db-url='mysql://root:@mysql:3306/drupal' \
+    --account-name=admin --account-pass=admin \
+    --site-name=drupal-cert \
+    --site-mail=drupal-cert@example.com
+    ```
+### Installing phpcs take this steps:
 * Install drupal coder globally, it is not compatible with Drupal 9:
     ```
     composer global require drupal/coder

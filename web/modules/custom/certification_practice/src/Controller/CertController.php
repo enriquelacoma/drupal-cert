@@ -10,14 +10,15 @@ use Drupal\Core\Controller\ControllerBase;
 class CertController extends ControllerBase {
 
   /**
-   * Certfication message.
+   * Certification message.
    *
    * @return array
    *   The message.
    */
-  public function certPracticeMessage() {
+  public function certPracticeMessage($user) {
+    $msg = $this->t('Certification Message. User id: @user_id', ['@user_id' => $user]);
     return [
-      '#markup' => $this->t('Certification Message.'),
+      '#markup' => $msg,
     ];
   }
 
