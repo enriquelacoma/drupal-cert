@@ -3,6 +3,10 @@
     ```
     docker-compose up -d
     ```
+ * Prepare drupal
+    ```
+    composer install
+    ```
 * Install drupal
     ```
    docker-compose exec web drush site-install -y standard \
