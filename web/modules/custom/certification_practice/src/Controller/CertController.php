@@ -19,8 +19,8 @@ class CertController extends ControllerBase {
   /**
    * CertController constructor.
    *
-   * @param \Drupal\certification_practice\Controller\CertMessage
-   *   $message
+   * @param \Drupal\certification_practice\Controller\CertMessage $message
+   *
    */
   public function __construct(CertMessage $message) {
     $this->msg = $message;

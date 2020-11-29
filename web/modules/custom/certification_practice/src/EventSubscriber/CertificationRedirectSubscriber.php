@@ -16,6 +16,8 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 class CertificationRedirectSubscriber implements EventSubscriberInterface {
 
   /**
+   * The user doing the request.
+   *
    * @var \Drupal\Core\Session\AccountProxyInterface
    */
   protected $currentUser;
@@ -52,6 +54,7 @@ class CertificationRedirectSubscriber implements EventSubscriberInterface {
    * Handler for the kernel request event.
    *
    * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
+   *   The request object.
    */
   public function onRequest(RequestEvent $event) {
     $route_name = $this->routeMatch->getRouteName();
@@ -60,7 +63,7 @@ class CertificationRedirectSubscriber implements EventSubscriberInterface {
     }
     $userId = $this->routeMatch->getParameters()->get('user');
     $roles = $this->currentUser->getRoles();
-    // Redirect role on_hold when accessing other users
+    // Redirect role on_hold when accessing other users.
     if (in_array('on_hold', $roles) && $userId !== $this->currentUser->id()) {
       $url = Url::fromUri('internal:/');
       $event->setResponse(new LocalRedirectResponse($url->toString()));

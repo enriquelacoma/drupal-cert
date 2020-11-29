@@ -55,7 +55,7 @@ class MessageConfigurationForm extends ConfigFormBase {
     $length = 10;
     $msg = $form_state->getValue('message');
     if (strlen($msg) > $length) {
-      $form_state->setErrorByName('message', $this->t('Max length: ') . $length);
+      $form_state->setErrorByName('message', $this->t('Max length: %path', ['%path' => $length]));
     }
   }
 
