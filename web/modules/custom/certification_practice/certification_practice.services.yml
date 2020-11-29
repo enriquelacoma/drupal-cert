@@ -1,0 +1,11 @@
+services:
+  certification_practice.message:
+    class: Drupal\certification_practice\CertMessage
+    arguments: ['@config.factory']
+    tags:
+      - {name: cert_message}
+  hello_world.redirect_subscriber:
+    class: Drupal\certification_practice\EventSubscriber\CertificationRedirectSubscriber
+    arguments: ['@current_user',  '@current_route_match']
+    tags:
+    - { name: event_subscriber }

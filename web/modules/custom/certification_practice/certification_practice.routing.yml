@@ -8,3 +8,10 @@ certification_practice.hello:
   parameters:
     param:
       type: entity:user
+certification_practice.message_form:
+  path: '/admin/config/cert/message-configuration'
+  defaults:
+    _form: Drupal\certification_practice\Form\MessageConfigurationForm
+    _title: 'Message configuration'
+  requirements:
+    _permission: 'administer site configuration'

@@ -7,5 +7,6 @@ web/sites
 web/themes
 web/*.*
 .idea
+.vscode
 .DS_Store
 *~

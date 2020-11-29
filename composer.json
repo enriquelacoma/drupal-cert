@@ -26,7 +26,8 @@
         "drupal/core-dev": "^9",
         "drupal/console": "^1.9",
         "drupal/twig_vardumper": "^3.0",
-        "drush/drush": "^10"
+        "drush/drush": "^10",
+        "phpmd/phpmd" : "@stable"
     },
     "conflict": {
         "drupal/drupal": "*"
