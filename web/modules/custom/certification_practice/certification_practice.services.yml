@@ -1,7 +1,7 @@
 services:
   certification_practice.message:
     class: Drupal\certification_practice\CertMessage
-    arguments: ['@config.factory']
+    arguments: ['@config.factory', '@event_dispatcher']
     tags:
       - {name: cert_message}
   hello_world.redirect_subscriber:
