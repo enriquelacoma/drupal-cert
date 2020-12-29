@@ -4,8 +4,15 @@ services:
     arguments: ['@config.factory', '@event_dispatcher']
     tags:
       - {name: cert_message}
-  hello_world.redirect_subscriber:
+  certification_practice.redirect_subscriber:
     class: Drupal\certification_practice\EventSubscriber\CertificationRedirectSubscriber
     arguments: ['@current_user',  '@current_route_match']
     tags:
     - { name: event_subscriber }
+  certification_practice.logger.channel.certification_practice:
+    parent: logger.channel_base
+    arguments: ['certification_practice']
+  certification_practice.logger.mail_logger:
+    class: Drupal\certification_practice\Logger\MailLogger
+    tags:
+      - { name: logger }
