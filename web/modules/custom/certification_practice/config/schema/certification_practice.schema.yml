@@ -1,0 +1,7 @@
+certification_practice.message:
+  type: config_object
+  label: 'Certification settings.'
+  mapping:
+    salutation:
+      type: string
+      label: 'Certification message'

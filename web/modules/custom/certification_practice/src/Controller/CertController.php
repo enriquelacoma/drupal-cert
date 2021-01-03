@@ -39,7 +39,8 @@ class CertController extends ControllerBase {
    * @return array
    *   The message.
    */
-  public function certPracticeMessage($user) {
+  public function certPracticeMessage($user = NULL) {
+    return [];
     $msg = $this->t('Certification Message. User id: @user_id', ['@user_id' => $user]);
     return [
       '#markup' => $msg . " " . $this->msg->getMessage(),

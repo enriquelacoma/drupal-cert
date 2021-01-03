@@ -1,0 +1,8 @@
+certification_practice.hello:
+  route_name: certification_practice.hello
+  title: 'Certification message'
+  base_route: certification_practice.hello
+certification_practice.config:
+  route_name: certification_practice.message_form
+  title: 'Configuration'
+  base_route: certification_practice.hello

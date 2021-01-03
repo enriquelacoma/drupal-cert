@@ -1,8 +1,9 @@
 certification_practice.hello:
   path: '/certification/{user}'
   defaults:
-    _controller:  Drupal\certification_practice\Controller\CertController::certPracticeMessage
+    _controller: Drupal\certification_practice\Controller\CertController::certPracticeMessage
     _title: 'Certification route'
+    user: 0
   requirements:
     _permission: 'access content'
   parameters:
